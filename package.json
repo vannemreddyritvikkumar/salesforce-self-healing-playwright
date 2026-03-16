@@ -1,14 +1,11 @@
 {
-  "name": "ai-playwright-healer",
+  "name": "salesforce-self-healing",
   "version": "1.0.0",
-  "description": "AI-powered self-healing wrapper for Playwright",
-  "main": "healer.ts",
-  "dependencies": {
+  "description": "AI-powered self-healing for Salesforce Shadow DOM",
+  "devDependencies": {
     "@playwright/test": "^1.40.0",
     "dotenv": "^16.3.1",
-    "openai": "^4.20.0"
-  },
-  "devDependencies": {
-    "typescript": "^5.0.0"
+    "openai": "^4.20.0",
+    "typescript": "^5.3.0"
   }
 }

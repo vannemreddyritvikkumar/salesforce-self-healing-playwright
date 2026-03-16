@@ -1,21 +1,22 @@
-# ai-playwright-healer
-A Playwright wrapper that catches "Element Not Found" errors, sends the DOM to an LLM, finds the new locator, and suggests a fix.
+# 🛠️ Salesforce AI Self-Healing Framework
 
-# 🚀 AI-Powered Self-Healing Playwright Framework
+An intelligent automation wrapper for **Playwright** designed to solve the "brittle locator" problem in complex **Salesforce Lightning** environments.
 
-This repository demonstrates a **Self-Healing Automation Architecture** for modern SDET roles. It solves the issue of "flaky tests" by using LLMs (GPT-4o) to dynamically recover from UI changes at runtime.
+## 🚀 The Challenge
+Salesforce UIs are notoriously difficult to automate due to:
+1. **Shadow DOM:** Standard locators often fail to pierce deep LWC (Lightning Web Component) structures.
+2. **Dynamic IDs:** Element IDs change frequently, causing standard scripts to break after every Salesforce release.
 
-### 🌟 Key Features
-- **Dynamic Recovery:** Automatically detects locator failures.
-- **LLM Context Injection:** Sends relevant DOM snippets to AI for real-time analysis.
-- **Cost Efficient:** Uses `gpt-4o-mini` with token-optimized DOM scraping.
+## 🧠 The AI Solution
+This framework implements a **Self-Healing** pattern:
+- **Failure Detection:** If a standard CSS/XPath locator fails, the `AIHealer` class captures the current DOM state.
+- **Contextual Analysis:** It sends a filtered DOM snapshot (tags, ARIA labels, text) to **GPT-4o**.
+- **Autonomous Recovery:** The AI returns the most probable new selector, allowing the test to continue without manual intervention.
 
-### 🛠 Tech Stack
-- **Playwright** (Automation)
-- **TypeScript** (Language)
-- **OpenAI API** (Intelligence)
-- **Dotenv** (Security)
-
-### 📈 Business Impact
-- **Maintenance Reduction:** Reduces manual script updates by up to 40%.
-- **Reliability:** Decreases false-positives in CI/CD pipelines.
+## 🛠️ Setup
+1. Clone the repo.
+2. Run `npm install`.
+3. Create a `.env` file with your `OPENAI_API_KEY` and Salesforce credentials.
+4. Run tests: 
+   ```bash
+   npx playwright test
